@@ -1,6 +1,4 @@
-<img src='https://img.shields.io/badge/django2--blue.svg'/>
-<img src='https://img.shields.io/badge/Ajax--red.svg'/>
-<img src='https://img.shields.io/badge/Django%20Rest%20Framework--brightgreen.svg'/>
+<img src='https://img.shields.io/badge/django2--blue.svg'/><img src='https://img.shields.io/badge/Ajax--red.svg'/><img src='https://img.shields.io/badge/Django%20Rest%20Framework--brightgreen.svg'/>
 # Simplest Django Ajax
 In this project I am trying to show the simplest MVP to create a backend with drf and consume it with ajax.
 With this project, you are avoiding to refresh page to load the posts. 
