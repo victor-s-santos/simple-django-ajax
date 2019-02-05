@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Perguntas</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div id='forms'>
+	<h1>Nova postagem</h1>
+	<form method="POST" class="post-form">{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit" class="save btn btn-default">Publica</button>
+	</form>
+</div>
+<div id='btns'>
+ <button class='btn'>Click-me!</button>
+</div>
+<p class='p1'></p>
+<p class='p2'></p>
+<p class='p3'></p>
+<!--
+-->
+<script type="text/javascript">
+		var n = 0;
+        var t = 0;
+        var i = 0;
+		$(document).ready(function renderiza(){
+			$.ajax({
+		             url : "http://127.0.0.1:8000/api",
+		             dataType: "json",
+		             success : function (data) {
+		             	console.log(data.length)
+		             	if(n == 0 || t < data.length){
+		             		for(i = t; i < data.length; i ++){
+		             		$(".p1").append("<li>" + data[i].nome + "</li>");
+		             		$(".p1").append("<br>");
+		             		$(".p1").append("<li>" + data[i].texto + "</li>");
+		             		n = n + 1;
+		             		t = data.length
+		             		setTimeout(renderiza, 5000);}
+
+		                      }else{
+		                      	setTimeout(renderiza, 5000)
+		                      } 
+
+		                 },
+		             error:function(){
+		             	alert('Connection error.Please, refresh the page.');
+		             }
+		             })
+		});
+
+    </script>
+</body>
+</html>
